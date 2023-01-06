@@ -1,0 +1,7 @@
+{
+  "name": "test-ionic-texo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

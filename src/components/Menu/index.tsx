@@ -8,7 +8,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import './Menu.css';
+import './styled.css';
 
 interface MenuList {
   url: string;
@@ -18,11 +18,11 @@ interface MenuList {
 const menuList: MenuList[] = [
   {
     title: 'Dashboard',
-    url: '/page/Dashboard',
+    url: '/page/dashboard',
   },
   {
     title: 'List',
-    url: '/page/List',
+    url: '/page/movie-list',
   }
 ];
 

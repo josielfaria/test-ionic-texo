@@ -1,0 +1,12 @@
+ion-grid>ion-row:first-child {
+  font-weight: bold;
+}
+
+ion-grid>ion-row:nth-child(odd) {
+  background: #8b8b8b4f;
+}
+
+ion-col {
+  border: solid;
+  border-width: 1px 1px;
+}

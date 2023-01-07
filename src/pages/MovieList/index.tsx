@@ -1,9 +1,16 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonLoading, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
+import Loading from '../../components/Loading';
 import MovieListTable from '../../components/MovieListTable';
+import { useFetch } from '../../hooks/api';
 import './styled.css';
 
+type MovieListTableResponse = {
+  qq: string; // TODO: response da api
+}
+
 const MovieListPage: React.FC = () => {
+  const { data: movieList, isFetching } = useFetch<MovieListTableResponse>('?page=0&size=99');
 
   return (
     <IonPage>
@@ -23,7 +30,18 @@ const MovieListPage: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <MovieListTable />
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>List movies</IonCardTitle>
+          </IonCardHeader>
+
+          <IonCardContent>
+            {isFetching
+              ? <Loading show={isFetching}></Loading>
+              : <MovieListTable data={movieList} />
+            }
+          </IonCardContent>
+        </IonCard >
       </IonContent>
     </IonPage>
   );

@@ -10,3 +10,7 @@ ion-col {
   border: solid;
   border-width: 1px 1px;
 }
+
+.search-by-year>input {
+  width: 100%;
+}

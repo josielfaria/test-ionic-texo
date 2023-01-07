@@ -1,16 +1,29 @@
 import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonLoading, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
+import React, { useState } from 'react';
 import Loading from '../../components/Loading';
 import MovieListTable from '../../components/MovieListTable';
 import { useFetch } from '../../hooks/api';
+import { MovieList } from '../../types/movie-data.type';
+import { PaginatorParams } from '../../types/paginator-params.type';
 import './styled.css';
 
-type MovieListTableResponse = {
-  qq: string; // TODO: response da api
-}
-
 const MovieListPage: React.FC = () => {
-  const { data: movieList, isFetching } = useFetch<MovieListTableResponse>('?page=0&size=99');
+  const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>({ page: 0, size: 12 });
+  const { data: movieList, isFetching } = useFetch<MovieList>(paginatorParams);
+
+  const updateMovieList = (year: string, winner: string): void => {
+    if (!!year) {
+      setPaginatorParams(prevState => {
+        return { ...prevState, year };
+      });
+    }
+
+    if (!!winner) {
+      setPaginatorParams(prevState => {
+        return { ...prevState, winner };
+      });
+    };
+  }
 
   return (
     <IonPage>
@@ -38,7 +51,7 @@ const MovieListPage: React.FC = () => {
           <IonCardContent>
             {isFetching
               ? <Loading show={isFetching}></Loading>
-              : <MovieListTable data={movieList} />
+              : <MovieListTable data={movieList} updateMovieList={updateMovieList} />
             }
           </IonCardContent>
         </IonCard >

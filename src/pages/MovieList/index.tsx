@@ -1,5 +1,6 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
+import MovieListTable from '../../components/MovieListTable';
 import './styled.css';
 
 const MovieListPage: React.FC = () => {
@@ -21,8 +22,8 @@ const MovieListPage: React.FC = () => {
             <IonTitle size="large">List</IonTitle>
           </IonToolbar>
         </IonHeader>
-        {/* TODO: Criar views */}
-        <h1>Teste</h1>
+
+        <MovieListTable />
       </IonContent>
     </IonPage>
   );

@@ -1,5 +1,9 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
+import ProducersIntervalTable from '../../components/ProducersIntervalTable';
+import TopStudiosTable from '../../components/TopStudiosTable';
+import WinnersByYearTable from '../../components/WinnersByYearTable';
+import YearsMultipleWinnersTable from '../../components/YearsMultipleWinnersTable';
 import './styled.css';
 
 const DashboardPage: React.FC = () => {
@@ -21,7 +25,26 @@ const DashboardPage: React.FC = () => {
             <IonTitle size="large">Dashboard</IonTitle>
           </IonToolbar>
         </IonHeader>
-        {/* TODO: Criar views */}
+
+        <IonGrid>
+          <IonRow>
+            <IonCol>
+              <YearsMultipleWinnersTable />
+            </IonCol>
+            <IonCol>
+              <TopStudiosTable />
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol>
+              <ProducersIntervalTable />
+            </IonCol>
+            <IonCol>
+              <WinnersByYearTable />
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+
       </IonContent>
     </IonPage>
   );

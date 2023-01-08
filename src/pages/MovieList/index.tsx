@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Loading from '../../components/Loading';
 import MovieListTable from '../../components/MovieListTable';
 import { useFetchPaginator } from '../../hooks/api';
-import { MovieList } from '../../types/movie-data.type';
+import { MovieList } from '../../types/movie-list-data.type';
 import { PaginatorParams } from '../../types/paginator-params.type';
 import './styled.css';
 

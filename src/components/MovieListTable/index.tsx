@@ -45,7 +45,7 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList }
 
       {data && data.content.map((item: any, index: any) => {
         return (
-          <IonRow>
+          <IonRow key={index}>
             <IonCol size-xs="3" size-md="3">{item.id}</IonCol>
             <IonCol size-xs="3" size-md="3">{item.year}</IonCol>
             <IonCol size-xs="3" size-md="3">{item.title}</IonCol>

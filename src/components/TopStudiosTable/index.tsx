@@ -24,7 +24,7 @@ const TopStudiosTable: React.FC<TopStudiosTableProps> = ({ data }) => {
 
           {data && data.studios.slice(0, 3).map((item: any, index: any) => {
             return (
-              <IonRow>
+              <IonRow key={index}>
                 <IonCol size-xs="6" size-md="6">{item.name}</IonCol>
                 <IonCol size-xs="6" size-md="6">{item.winCount}</IonCol>
               </IonRow>

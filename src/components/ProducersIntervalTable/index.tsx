@@ -27,7 +27,7 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
 
           {data && data.max.map((item: any, index: any) => {
             return (
-              <IonRow>
+              <IonRow key={index}>
                 <IonCol size-xs="3" size-md="3">{item.producer}</IonCol>
                 <IonCol size-xs="3" size-md="3">{item.interval}</IonCol>
                 <IonCol size-xs="3" size-md="3">{item.previousWin}</IonCol>
@@ -47,7 +47,7 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
           </IonRow>
           {data && data.min.map((item: any, index: any) => {
             return (
-              <IonRow>
+              <IonRow key={index}>
                 <IonCol size-xs="3" size-md="3">{item.producer}</IonCol>
                 <IonCol size-xs="3" size-md="3">{item.interval}</IonCol>
                 <IonCol size-xs="3" size-md="3">{item.previousWin}</IonCol>

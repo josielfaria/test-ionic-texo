@@ -1,7 +1,7 @@
 import { IonCol, IonGrid, IonRow } from '@ionic/react';
 import { debounce } from 'lodash';
 import React, { useRef } from 'react';
-import { MovieList } from '../../types/movie-data.type';
+import { MovieList } from '../../types/movie-list-data.type';
 import './styled.css';
 
 interface MovieListTableProps {

@@ -25,7 +25,7 @@ const YearsMultipleWinnersTable: React.FC<YearsMultipleWinnersTableProps> = ({ d
 
           {data && data.years.map((item: any, index: any) => {
             return (
-              <IonRow>
+              <IonRow key={index}>
                 <IonCol size-xs="6" size-md="6">{item.year}</IonCol>
                 <IonCol size-xs="6" size-md="6">{item.winnerCount}</IonCol>
               </IonRow>

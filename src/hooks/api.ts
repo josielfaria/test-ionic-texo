@@ -18,11 +18,10 @@ export function useFetch<T = unknown>(url: string) {
       }).finally(() => {
         setIsFetching(false)
       });
-  }, [url])
+  }, [apiUrl, url])
 
   return { data, error, isFetching };
 }
-
 
 export function useFetchPaginator<T = unknown>(params: PaginatorParams) {
   const apiUrl = 'https://tools.texoit.com/backend-java/api/movies';

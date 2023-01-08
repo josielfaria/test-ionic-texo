@@ -6,12 +6,11 @@ import YearsMultipleWinnersTable from '../../components/YearsMultipleWinnersTabl
 import { IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { useFetch } from '../../hooks/api';
 import { YearsMultipleWinners } from '../../types/years-multiple-winners';
-import './styled.css';
 import { TopStudios } from '../../types/top-studios.type';
 import { ProducersInterval } from '../../types/producers-interval.type';
+import './styled.css';
 
 const DashboardPage: React.FC = () => {
-
   const { data: yearsMultipleWinners } = useFetch<YearsMultipleWinners>('?projection=years-with-multiple-winners');
   const { data: topStudios } = useFetch<TopStudios>('?projection=studios-with-win-count');
   const { data: producersInterval } = useFetch<ProducersInterval>('?projection=max-min-win-interval-for-producers');
@@ -40,7 +39,6 @@ const DashboardPage: React.FC = () => {
               <YearsMultipleWinnersTable data={yearsMultipleWinners} />
             </IonCol>
             <IonCol>
-
               <TopStudiosTable data={topStudios} />
             </IonCol>
           </IonRow>
@@ -53,7 +51,6 @@ const DashboardPage: React.FC = () => {
             </IonCol>
           </IonRow>
         </IonGrid>
-
       </IonContent>
     </IonPage>
   );

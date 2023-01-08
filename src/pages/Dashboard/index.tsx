@@ -8,11 +8,13 @@ import { useFetch } from '../../hooks/api';
 import { YearsMultipleWinners } from '../../types/years-multiple-winners';
 import './styled.css';
 import { TopStudios } from '../../types/top-studios.type';
+import { ProducersInterval } from '../../types/producers-interval.type';
 
 const DashboardPage: React.FC = () => {
 
   const { data: yearsMultipleWinners } = useFetch<YearsMultipleWinners>('?projection=years-with-multiple-winners');
   const { data: topStudios } = useFetch<TopStudios>('?projection=studios-with-win-count');
+  const { data: producersInterval } = useFetch<ProducersInterval>('?projection=max-min-win-interval-for-producers');
 
   return (
     <IonPage>
@@ -44,7 +46,7 @@ const DashboardPage: React.FC = () => {
           </IonRow>
           <IonRow>
             <IonCol>
-              <ProducersIntervalTable />
+              <ProducersIntervalTable data={producersInterval} />
             </IonCol>
             <IonCol>
               <WinnersByYearTable />

@@ -1,0 +1,16 @@
+.grid-table>ion-row:first-child {
+  font-weight: bold;
+}
+
+.grid-table>ion-row:nth-child(odd) {
+  background: #8b8b8b4f;
+}
+
+.grid-table ion-col {
+  border: solid;
+  border-width: 1px 1px;
+}
+
+.search-by-year>input {
+  width: 100%;
+}

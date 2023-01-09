@@ -1,15 +1,17 @@
+import React, { useRef } from 'react';
 import { IonCol, IonGrid, IonRow } from '@ionic/react';
 import { debounce } from 'lodash';
-import React, { useRef } from 'react';
 import { MovieList } from '../../types/movie-list-data.type';
+import Paginator from '../Paginator';
 import './styled.css';
 
 interface MovieListTableProps {
   data: MovieList | null,
   updateMovieList: (year: string, winner: string) => void,
+  updatePageMovieList: (page: number) => void,
 }
 
-const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList }) => {
+const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, updatePageMovieList }) => {
 
   const onInput = useRef(
     debounce((input: string, value: string) => {
@@ -23,6 +25,10 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList }
       updateMovieList(yearValue, winnerValue);
     }, 1000)
   ).current;
+
+  const updatePage = (pageSelected: number): void => {
+    updatePageMovieList(pageSelected);
+  }
 
   return (
     <IonGrid>
@@ -53,6 +59,7 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList }
           </IonRow>
         )
       })}
+      <Paginator totalPages={data?.totalPages} qtdPagesView={5} updatePage={updatePage}></Paginator>
     </IonGrid>
   );
 }

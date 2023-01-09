@@ -5,21 +5,24 @@ import { play, playSkipBack, playSkipForward } from 'ionicons/icons';
 import './styled.css';
 
 interface PaginatorProps {
-  totalPages: number,
+  totalPages: number | undefined,
   qtdPagesView: number,
+  updatePage: (pageSelected: number) => void,
 }
 
-const Paginator: React.FC<PaginatorProps> = ({ totalPages, qtdPagesView }) => {
+const Paginator: React.FC<PaginatorProps> = ({ totalPages = 0, qtdPagesView, updatePage }) => {
+
+  const qtdMaxPagesView = totalPages < qtdPagesView ? totalPages : qtdPagesView;
 
   const [pageSelected, setPageSelected] = useState<number>(1);
-  const [skip, setSkip] = useState<string>('init');
-  const { data: pagesView, newSelectedPage } = usePagesView<Array<number>>(totalPages, qtdPagesView, skip);
+  const [skip, setSkip] = useState<string>('');
+  const { data: pagesView, newSelectedPage } = usePagesView<Array<number>>(totalPages, qtdMaxPagesView, skip);
 
   const isActive = (pageNumber: number) => pageNumber === pageSelected;
   const isDisabledNext = pageSelected === totalPages;
   const isDisabledPrev = pageSelected === 1;
-  const isDisabledSkip = pageSelected > (totalPages - qtdPagesView);
-  const isDisabledBackSkip = pageSelected < (qtdPagesView + 1);
+  const isDisabledSkip = pageSelected > (totalPages - qtdMaxPagesView);
+  const isDisabledBackSkip = pageSelected < (qtdMaxPagesView + 1);
   const highestPageView = Math.max(...pagesView);
   const smallerPageView = Math.min(...pagesView);
 
@@ -27,6 +30,14 @@ const Paginator: React.FC<PaginatorProps> = ({ totalPages, qtdPagesView }) => {
     setSkip('')
     setPageSelected(newSelectedPage)
   }, [newSelectedPage, skip])
+
+  useEffect(() => {
+    updatePage(pageSelected-1);
+  }, [pageSelected])
+
+  useEffect(() => {
+    setSkip('init')
+  }, [totalPages])
 
   const nextPage = () => {
     if (pageSelected >= totalPages) {
@@ -73,7 +84,7 @@ const Paginator: React.FC<PaginatorProps> = ({ totalPages, qtdPagesView }) => {
       </span>
 
       {
-        pagesView.map((pageNumber: number, index: any) => {
+        pagesView && pagesView.map((pageNumber: number, index: any) => {
           return (
             <span
               key={index}

@@ -16,9 +16,9 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
       </IonCardHeader>
 
       <IonCardContent>
-        <IonTitle class='ion-text-uppercase'>maximum</IonTitle>
-        <IonGrid>
-          <IonRow color="success">
+        <IonTitle class="ion-text-uppercase">maximum</IonTitle>
+        <IonGrid class="grid-table">
+          <IonRow>
             <IonCol class="ion-text-center" size-xs="3" size-md="3">Producer</IonCol>
             <IonCol class="ion-text-center" size-xs="3" size-md="3">Interval</IonCol>
             <IonCol class="ion-text-center" size-xs="3" size-md="3">Previous Year</IonCol>
@@ -37,9 +37,9 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
           })}
         </IonGrid>
 
-        <IonTitle class='ion-text-uppercase ion-padding-top'>minimum</IonTitle>
-        <IonGrid>
-          <IonRow color="success">
+        <IonTitle class="ion-text-uppercase ion-padding-top">minimum</IonTitle>
+        <IonGrid class="grid-table">
+          <IonRow>
             <IonCol class="ion-text-center" size-xs="3" size-md="3">Producer</IonCol>
             <IonCol class="ion-text-center" size-xs="3" size-md="3">Interval</IonCol>
             <IonCol class="ion-text-center" size-xs="3" size-md="3">Previous Year</IonCol>

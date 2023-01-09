@@ -16,8 +16,8 @@ const YearsMultipleWinnersTable: React.FC<YearsMultipleWinnersTableProps> = ({ d
       </IonCardHeader>
 
       <IonCardContent>
-        <IonGrid>
-          <IonRow color="success">
+        <IonGrid class="grid-table">
+          <IonRow>
             <IonCol class="ion-text-center" size-xs="6" size-md="6">Year</IonCol>
             <IonCol class="ion-text-center" size-xs="6" size-md="6">Win Count</IonCol>
 

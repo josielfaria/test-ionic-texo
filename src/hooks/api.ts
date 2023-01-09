@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { PaginatorParams } from '../types/paginator-params.type';
 import axios from 'axios';
 
-
 export function useFetch<T = unknown>(url: string) {
   const apiUrl = 'https://tools.texoit.com/backend-java/api/movies' + url;
   const [data, setData] = useState<T | null>(null);

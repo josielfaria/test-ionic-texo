@@ -1,0 +1,33 @@
+.flip-icon {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  display: flex;
+}
+
+.paginator {
+  display: flex;
+}
+
+.paginator>span {
+  height: 26px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.paginator>span:hover {
+  background-color: var(--ion-color-primary);
+  cursor: pointer;
+}
+
+.paginator>span.active {
+  background-color: var(--ion-color-primary);
+}
+
+.paginator>.disabled {
+  cursor: default;
+  opacity: .4;
+  pointer-events: none;
+}

@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^12.6.3",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.20",
     "@types/lodash": "^4.14.191",
     "@types/node": "^12.19.15",
@@ -47,7 +48,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!your-module-name)/\"",
+    "test": "react-scripts test --watchAll --transformIgnorePatterns \"node_modules/(?!your-module-name)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -70,7 +71,10 @@
   },
   "devDependencies": {
     "@capacitor/cli": "4.6.1",
-    "@types/lodash.debounce": "^4.0.7"
+    "@types/enzyme": "^3.10.12",
+    "@types/lodash.debounce": "^4.0.7",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.7"
   },
   "description": "An Ionic project"
 }

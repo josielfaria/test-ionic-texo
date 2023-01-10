@@ -30,6 +30,8 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, 
     updatePageMovieList(pageSelected);
   }
 
+  const transformBooleanValue = (value: boolean) => value ? "Yes" : "No";
+
   return (
     <IonGrid class="grid-table">
       <IonRow>
@@ -54,7 +56,7 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, 
             <IonCol size-xs="3" size-md="3">{item.id}</IonCol>
             <IonCol size-xs="3" size-md="3">{item.year}</IonCol>
             <IonCol size-xs="3" size-md="3">{item.title}</IonCol>
-            <IonCol size-xs="3" size-md="3">{String(item.winner)}</IonCol>
+            <IonCol size-xs="3" size-md="3">{transformBooleanValue(item.winner)}</IonCol>
           </IonRow>
         )
       })}

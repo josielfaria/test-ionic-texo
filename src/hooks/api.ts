@@ -6,9 +6,11 @@ export function useFetch<T = unknown>(url: string) {
   const apiUrl = 'https://tools.texoit.com/backend-java/api/movies' + url;
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | null>(null);
-  const [isFetching, setIsFetching] = useState(true);
+  const [isFetching, setIsFetching] = useState<boolean>();
 
   useEffect(() => {
+    setIsFetching(true);
+
     axios.get(apiUrl)
       .then((response) => {
         setData(response.data)
@@ -26,9 +28,11 @@ export function useFetchPaginator<T = unknown>(params: PaginatorParams) {
   const apiUrl = 'https://tools.texoit.com/backend-java/api/movies';
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | null>(null);
-  const [isFetching, setIsFetching] = useState(true);
+  const [isFetching, setIsFetching] = useState<boolean>();
 
   useEffect(() => {
+    setIsFetching(true);
+
     axios.get(apiUrl, { params })
       .then((response) => {
         setData(response.data)

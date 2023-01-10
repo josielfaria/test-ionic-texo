@@ -3,12 +3,13 @@
 }
 
 .grid-table>ion-row:nth-child(odd) {
-  background: #8b8b8b4f;
+  background: #f4f4f4;
 }
 
 .grid-table ion-col {
-  border: solid;
-  border-width: 1px 1px;
+  border-width: .01em;
+  border-style: solid;
+  border-color: #e2e2e2;
 }
 
 .search-by-year>input {

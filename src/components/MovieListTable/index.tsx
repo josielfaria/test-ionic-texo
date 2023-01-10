@@ -48,7 +48,6 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, 
           </select>
         </IonCol>
       </IonRow>
-
       {data && data.content.map((item: any, index: any) => {
         return (
           <IonRow key={index}>
@@ -59,7 +58,12 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, 
           </IonRow>
         )
       })}
-      <Paginator totalPages={data?.totalPages} qtdPagesView={5} updatePage={updatePage}></Paginator>
+
+      <IonRow>
+        <IonCol size-xs="12" size-md="12">
+          <Paginator totalPages={data?.totalPages} qtdPagesView={5} updatePage={updatePage}></Paginator>
+        </IonCol>
+      </IonRow>
     </IonGrid>
   );
 }

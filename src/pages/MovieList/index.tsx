@@ -8,7 +8,7 @@ import { PaginatorParams } from '../../types/paginator-params.type';
 import './styled.css';
 
 const MovieListPage: React.FC = () => {
-  const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>({ page: 0, size: 12 });
+  const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>({ page: 0, size: 11 });
   const { data: movieList, isFetching } = useFetchPaginator<MovieList>(paginatorParams);
 
   const updateMovieList = (year: string, winner: string): void => {

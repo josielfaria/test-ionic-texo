@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import Loading from '../../components/Loading';
+import React, { useEffect, useState } from 'react';
+// import Loading from '../../components/Loading';
 import MovieListTable from '../../components/MovieListTable';
-import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, useIonLoading } from '@ionic/react';
 import { useFetchPaginator } from '../../hooks/api';
 import { MovieList } from '../../types/movie-list-data.type';
 import { PaginatorParams } from '../../types/paginator-params.type';
@@ -10,6 +10,11 @@ import './styled.css';
 const MovieListPage: React.FC = () => {
   const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>({ page: 0, size: 11 });
   const { data: movieList, isFetching } = useFetchPaginator<MovieList>(paginatorParams);
+  const [present, dismiss] = useIonLoading();
+
+  useEffect(() => {
+    (isFetching) ? present({ message: 'Loading...' }) : dismiss();
+  }, [present, dismiss, isFetching])
 
   const updateMovieList = (year: string, winner: string): void => {
     if (!!year) {
@@ -32,7 +37,7 @@ const MovieListPage: React.FC = () => {
   }
 
   return (
-    <IonPage>
+    <IonPage data-testid="ion-page">
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
@@ -55,14 +60,11 @@ const MovieListPage: React.FC = () => {
           </IonCardHeader>
 
           <IonCardContent>
-            {isFetching
-              ? <Loading show={isFetching}></Loading>
-              : <MovieListTable
-                data={movieList}
-                updateMovieList={updateMovieList}
-                updatePageMovieList={updatePageMovieList}
-              />
-            }
+            <MovieListTable
+              data={movieList}
+              updateMovieList={updateMovieList}
+              updatePageMovieList={updatePageMovieList}
+            />
           </IonCardContent>
         </IonCard >
       </IonContent>

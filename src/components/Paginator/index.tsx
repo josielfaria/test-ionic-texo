@@ -39,7 +39,7 @@ const Paginator: React.FC<PaginatorProps> = ({ totalPages = 0, qtdPagesView, upd
     setSkip('init')
   }, [totalPages])
 
-  const nextPage = () => {
+  const nextPage = (): void => {
     if (pageSelected >= totalPages) {
       return;
     }
@@ -53,7 +53,7 @@ const Paginator: React.FC<PaginatorProps> = ({ totalPages = 0, qtdPagesView, upd
     setPageSelected(pageSelected + 1);
   };
 
-  const prevPage = () => {
+  const prevPage = (): void => {
     if (pageSelected <= 1) {
       return;
     }

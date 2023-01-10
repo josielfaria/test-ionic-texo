@@ -30,7 +30,7 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, 
     updatePageMovieList(pageSelected);
   }
 
-  const transformBooleanValue = (value: boolean) => value ? "Yes" : "No";
+  const transformBooleanValue = (value: boolean): string => value ? "Yes" : "No";
 
   return (
     <IonGrid class="grid-table">

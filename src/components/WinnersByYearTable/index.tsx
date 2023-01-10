@@ -18,7 +18,7 @@ const WinnersByYearTable: React.FC = () => {
     });
   }
 
-  const searchWinnersByYear = () => {
+  const searchWinnersByYear = (): void => {
     if (!!paginatorParams.year) {
       axios.get(apiUrl, { params: paginatorParams })
         .then((response) => {
@@ -51,7 +51,7 @@ const WinnersByYearTable: React.FC = () => {
               <IonButton
                 class="search-button"
                 color="primary" size="small"
-                onClick={(e: any) => searchWinnersByYear()}
+                onClick={() => searchWinnersByYear()}
               >
                 <IonIcon slot="icon-only" icon={search}></IonIcon>
               </IonButton>

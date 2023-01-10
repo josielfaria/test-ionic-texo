@@ -13,7 +13,7 @@ interface MovieListTableProps {
 
 const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, updatePageMovieList }) => {
 
-  const onInput = useRef(
+  const setInputUpdateMovieList = useRef(
     debounce((input: string, value: string) => {
       let yearValue = '';
       let winnerValue = '';
@@ -38,12 +38,12 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, 
         <IonCol class="ion-text-center" size-xs="3" size-md="3">Id</IonCol>
         <IonCol class="ion-text-center search-by-year" size-xs="3" size-md="3">
           <p>Year</p>
-          <input type="text" onChange={(e) => onInput("inputYear", e.target.value)} />
+          <input type="text" onChange={(e) => setInputUpdateMovieList("inputYear", e.target.value)} />
         </IonCol>
         <IonCol class="ion-text-center" size-xs="3" size-md="3">Title</IonCol>
         <IonCol class="ion-text-center" size-xs="3" size-md="3">
           <p>Winner?</p>
-          <select name="select" onChange={(e) => onInput("inputWinner", e.target.value)}>
+          <select name="select" onChange={(e) => setInputUpdateMovieList("inputWinner", e.target.value)}>
             <option value="">Yes/No</option>
             <option value="true">Yes</option>
             <option value="false">No</option>

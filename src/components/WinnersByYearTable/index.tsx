@@ -27,7 +27,7 @@ const WinnersByYearTable: React.FC = () => {
     }
   }
 
-  const onInput = useRef(
+  const setInputUpdateWinnersByYear = useRef(
     debounce((yearValue: string) => {
       updateWinnersByYear(yearValue);
     }, 500)
@@ -44,7 +44,7 @@ const WinnersByYearTable: React.FC = () => {
           <IonRow>
             <IonCol size-xs="10">
               <IonInput type="number"
-                onChange={(e: any) => onInput(e.target.value)}
+                onChange={(e: any) => setInputUpdateWinnersByYear(e.target.value)}
               />
             </IonCol>
             <IonCol size-xs="2">

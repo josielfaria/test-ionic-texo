@@ -57,7 +57,11 @@ const MovieListPage: React.FC = () => {
           <IonCardContent>
             {isFetching
               ? <Loading show={isFetching}></Loading>
-              : <MovieListTable data={movieList} updateMovieList={updateMovieList} updatePageMovieList={updatePageMovieList} />
+              : <MovieListTable
+                data={movieList}
+                updateMovieList={updateMovieList}
+                updatePageMovieList={updatePageMovieList}
+              />
             }
           </IonCardContent>
         </IonCard >

@@ -38,6 +38,7 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
         </IonGrid>
 
         <IonTitle class="ion-text-uppercase ion-padding-top">minimum</IonTitle>
+
         <IonGrid class="grid-table">
           <IonRow>
             <IonCol class="ion-text-center" size-xs="3" size-md="3">Producer</IonCol>
@@ -45,6 +46,7 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
             <IonCol class="ion-text-center" size-xs="3" size-md="3">Previous Year</IonCol>
             <IonCol class="ion-text-center" size-xs="3" size-md="3">Following Year</IonCol>
           </IonRow>
+
           {data && data.min.map((item: any, index: any) => {
             return (
               <IonRow key={index}>

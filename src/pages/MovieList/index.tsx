@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-// import Loading from '../../components/Loading';
-import MovieListTable from '../../components/MovieListTable';
-import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, useIonLoading } from '@ionic/react';
+import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar, useIonLoading } from '@ionic/react';
 import { useFetchPaginator } from '../../hooks/api';
 import { MovieList } from '../../types/movie-list-data.type';
 import { PaginatorParams } from '../../types/paginator-params.type';
+import MovieListTable from '../../components/MovieListTable';
+import Menu from '../../components/Menu';
 import './styled.css';
 
 const MovieListPage: React.FC = () => {
@@ -54,19 +54,29 @@ const MovieListPage: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <IonCard>
-          <IonCardHeader>
-            <IonCardTitle>List movies</IonCardTitle>
-          </IonCardHeader>
+        <IonGrid>
+          <IonRow>
+            <IonCol size-xs="2" size-md="2">
+              <Menu />
+            </IonCol>
 
-          <IonCardContent>
-            <MovieListTable
-              data={movieList}
-              updateMovieList={updateMovieList}
-              updatePageMovieList={updatePageMovieList}
-            />
-          </IonCardContent>
-        </IonCard >
+            <IonCol size-xs="10" size-md="10">
+              <IonCard>
+                <IonCardHeader>
+                  <IonCardTitle>List movies</IonCardTitle>
+                </IonCardHeader>
+
+                <IonCardContent>
+                  <MovieListTable
+                    data={movieList}
+                    updateMovieList={updateMovieList}
+                    updatePageMovieList={updatePageMovieList}
+                  />
+                </IonCardContent>
+              </IonCard >
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );

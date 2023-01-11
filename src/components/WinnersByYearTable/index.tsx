@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCol, IonGrid, IonIcon, IonInput, IonRow } from '@ionic/react';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCol, IonGrid, IonIcon, IonInput, IonRow, useIonLoading } from '@ionic/react';
 import { MovieList } from '../../types/movie-list-data.type';
 import { PaginatorParams } from '../../types/paginator-params.type';
 import { debounce } from 'lodash';
@@ -11,6 +11,7 @@ const WinnersByYearTable: React.FC = () => {
   const apiUrl = 'https://tools.texoit.com/backend-java/api/movies';
   const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>({ page: 0, size: 99, winner: 'true' });
   const [data, setData] = useState<MovieList>();
+  const [present, dismiss] = useIonLoading();
 
   const updateWinnersByYear = (year: string): void => {
     setPaginatorParams(prevState => {
@@ -19,11 +20,17 @@ const WinnersByYearTable: React.FC = () => {
   }
 
   const searchWinnersByYear = (): void => {
+    present();
+
     if (!!paginatorParams.year) {
       axios.get(apiUrl, { params: paginatorParams })
         .then((response) => {
-          setData(response.data)
-        })
+          setData(response.data);
+        }).catch((err) => {
+          console.log('error:', err);
+        }).finally(() => {
+          dismiss();
+        });
     }
   }
 
@@ -50,7 +57,7 @@ const WinnersByYearTable: React.FC = () => {
             />
           </IonCol>
           <IonCol size-xs="1">
-            <button className="search-button" onClick={() => searchWinnersByYear()}            >
+            <button className="search-button" onClick={() => searchWinnersByYear()}>
               <IonIcon slot="icon-only" icon={search}></IonIcon>
             </button>
           </IonCol>

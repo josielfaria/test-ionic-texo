@@ -12,6 +12,7 @@
   border-color: #e2e2e2;
 }
 
-.search-by-year>input {
+.filter-by-year>input {
   width: 100%;
+  font-weight: initial;
 }

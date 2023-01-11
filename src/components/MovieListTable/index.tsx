@@ -36,9 +36,14 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, 
     <IonGrid class="grid-table">
       <IonRow>
         <IonCol class="ion-text-center" size-xs="3" size-md="3">Id</IonCol>
-        <IonCol class="ion-text-center search-by-year" size-xs="3" size-md="3">
+        <IonCol class="ion-text-center filter-by-year" size-xs="3" size-md="3">
           <p>Year</p>
-          <input type="text" onChange={(e) => setInputUpdateMovieList("inputYear", e.target.value)} />
+          <input
+            type="text"
+            className=""
+            placeholder="Filter by year"
+            onChange={(e) => setInputUpdateMovieList("inputYear", e.target.value)}
+          />
         </IonCol>
         <IonCol class="ion-text-center" size-xs="3" size-md="3">Title</IonCol>
         <IonCol class="ion-text-center" size-xs="3" size-md="3">

@@ -40,23 +40,22 @@ const WinnersByYearTable: React.FC = () => {
       </IonCardHeader>
 
       <IonCardContent>
+        <IonRow>
+          <IonCol size-xs="11">
+            <input
+              type="number"
+              className="search-winners-year"
+              placeholder="Search by year"
+              onChange={(e) => setInputUpdateWinnersByYear(e.target.value)}
+            />
+          </IonCol>
+          <IonCol size-xs="1">
+            <button className="search-button" onClick={() => searchWinnersByYear()}            >
+              <IonIcon slot="icon-only" icon={search}></IonIcon>
+            </button>
+          </IonCol>
+        </IonRow>
         <IonGrid class="grid-table">
-          <IonRow>
-            <IonCol size-xs="10">
-              <IonInput type="number"
-                onChange={(e: any) => setInputUpdateWinnersByYear(e.target.value)}
-              />
-            </IonCol>
-            <IonCol size-xs="2">
-              <IonButton
-                class="search-button"
-                color="primary" size="small"
-                onClick={() => searchWinnersByYear()}
-              >
-                <IonIcon slot="icon-only" icon={search}></IonIcon>
-              </IonButton>
-            </IonCol>
-          </IonRow>
 
           <IonRow color="success">
             <IonCol class="ion-text-center" size-xs="4" size-md="4">Id</IonCol>

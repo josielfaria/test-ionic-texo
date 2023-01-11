@@ -5,39 +5,46 @@ import { play, playSkipBack, playSkipForward } from 'ionicons/icons';
 import './styled.css';
 
 interface PaginatorProps {
-  totalPages: number | undefined,
-  qtdPagesView: number,
-  updatePage: (pageSelected: number) => void,
+  totalPages: number | undefined;
+  qtdPagesView: number;
+  updatePage: (pageSelected: number) => void;
 }
 
-const Paginator: React.FC<PaginatorProps> = ({ totalPages = 0, qtdPagesView, updatePage }) => {
-
+const Paginator: React.FC<PaginatorProps> = ({
+  totalPages = 0,
+  qtdPagesView,
+  updatePage,
+}) => {
   const qtdMaxPagesView = totalPages < qtdPagesView ? totalPages : qtdPagesView;
 
   const [pageSelected, setPageSelected] = useState<number>(1);
   const [skip, setSkip] = useState<string>('');
-  const { data: pagesView, newSelectedPage } = usePagesView<Array<number>>(totalPages, qtdMaxPagesView, skip);
+  const { data: pagesView, newSelectedPage } = usePagesView<Array<number>>(
+    totalPages,
+    qtdMaxPagesView,
+    skip
+  );
 
   const isActive = (pageNumber: number) => pageNumber === pageSelected;
   const isDisabledNext = pageSelected === totalPages;
   const isDisabledPrev = pageSelected === 1;
-  const isDisabledSkip = pageSelected > (totalPages - qtdMaxPagesView);
-  const isDisabledBackSkip = pageSelected < (qtdMaxPagesView + 1);
+  const isDisabledSkip = pageSelected > totalPages - qtdMaxPagesView;
+  const isDisabledBackSkip = pageSelected < qtdMaxPagesView + 1;
   const highestPageView = Math.max(...pagesView);
   const smallerPageView = Math.min(...pagesView);
 
   useEffect(() => {
-    setSkip('')
-    setPageSelected(newSelectedPage)
-  }, [newSelectedPage, skip])
+    setSkip('');
+    setPageSelected(newSelectedPage);
+  }, [newSelectedPage, skip]);
 
   useEffect(() => {
-    updatePage(pageSelected-1);
-  }, [pageSelected])
+    updatePage(pageSelected - 1);
+  }, [pageSelected]);
 
   useEffect(() => {
-    setSkip('init')
-  }, [totalPages])
+    setSkip('init');
+  }, [totalPages]);
 
   const nextPage = (): void => {
     if (pageSelected >= totalPages) {
@@ -68,50 +75,53 @@ const Paginator: React.FC<PaginatorProps> = ({ totalPages = 0, qtdPagesView, upd
   };
 
   return (
-    <p size-xs="2" size-md="2" className="paginator ion-justify-content-center ion-align-items-center">
+    <p
+      size-xs='2'
+      size-md='2'
+      className='paginator ion-justify-content-center ion-align-items-center'
+    >
       <span
-        className={isDisabledBackSkip ? "disabled" : ""}
+        className={isDisabledBackSkip ? 'disabled' : ''}
         onClick={() => setSkip('backSkip')}
       >
-        <IonIcon icon={playSkipBack} ></IonIcon>
+        <IonIcon icon={playSkipBack}></IonIcon>
       </span>
 
       <span
-        className={isDisabledPrev ? "disabled" : ""}
+        className={isDisabledPrev ? 'disabled' : ''}
         onClick={() => prevPage()}
       >
-        <IonIcon class="flip-icon ion-align-items-center" icon={play}></IonIcon>
+        <IonIcon class='flip-icon ion-align-items-center' icon={play}></IonIcon>
       </span>
 
-      {
-        pagesView && pagesView.map((pageNumber: number, index: any) => {
+      {pagesView &&
+        pagesView.map((pageNumber: number, index: any) => {
           return (
             <span
               key={index}
-              className={isActive(pageNumber) ? "active" : ""}
+              className={isActive(pageNumber) ? 'active' : ''}
               onClick={() => setPageSelected(pageNumber)}
             >
               {pageNumber}
             </span>
-          )
-        })
-      }
+          );
+        })}
 
       <span
-        className={isDisabledNext ? "disabled" : ""}
+        className={isDisabledNext ? 'disabled' : ''}
         onClick={() => nextPage()}
       >
         <IonIcon icon={play}></IonIcon>
       </span>
 
       <span
-        className={isDisabledSkip ? "disabled" : ""}
+        className={isDisabledSkip ? 'disabled' : ''}
         onClick={() => setSkip('skip')}
       >
         <IonIcon icon={playSkipForward}></IonIcon>
       </span>
-    </p >
+    </p>
   );
-}
+};
 
 export default Paginator;

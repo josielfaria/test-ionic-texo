@@ -6,73 +6,102 @@ import Paginator from '../Paginator';
 import './styled.css';
 
 interface MovieListTableProps {
-  data: MovieList | null,
-  updateMovieList: (year: string, winner: string) => void,
-  updatePageMovieList: (page: number) => void,
+  data: MovieList | null;
+  updateMovieList: (year: string, winner: string) => void;
+  updatePageMovieList: (page: number) => void;
 }
 
-const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, updatePageMovieList }) => {
-
+const MovieListTable: React.FC<MovieListTableProps> = ({
+  data,
+  updateMovieList,
+  updatePageMovieList,
+}) => {
   const setInputUpdateMovieList = useRef(
     debounce((input: string, value: string) => {
       let yearValue = '';
       let winnerValue = '';
-
-      (input === 'inputYear')
-        ? yearValue = value
-        : winnerValue = value;
-
+      input === 'inputYear' ? (yearValue = value) : (winnerValue = value);
       updateMovieList(yearValue, winnerValue);
     }, 1000)
   ).current;
 
   const updatePage = (pageSelected: number): void => {
     updatePageMovieList(pageSelected);
-  }
+  };
 
-  const transformBooleanValue = (value: boolean): string => value ? "Yes" : "No";
+  const transformBooleanValue = (value: boolean): string =>
+    value ? 'Yes' : 'No';
 
   return (
-    <IonGrid class="grid-table">
+    <IonGrid class='grid-table'>
       <IonRow>
-        <IonCol class="ion-text-center" size-xs="3" size-md="3">Id</IonCol>
-        <IonCol class="ion-text-center filter-by-year" size-xs="3" size-md="3">
+        <IonCol class='ion-text-center' size-xs='3' size-md='3'>
+          Id
+        </IonCol>
+
+        <IonCol class='ion-text-center filter-by-year' size-xs='3' size-md='3'>
           <p>Year</p>
           <input
-            type="text"
-            className=""
-            placeholder="Filter by year"
-            onChange={(e) => setInputUpdateMovieList("inputYear", e.target.value)}
+            type='text'
+            className=''
+            placeholder='Filter by year'
+            onChange={(e) =>
+              setInputUpdateMovieList('inputYear', e.target.value)
+            }
           />
         </IonCol>
-        <IonCol class="ion-text-center" size-xs="3" size-md="3">Title</IonCol>
-        <IonCol class="ion-text-center" size-xs="3" size-md="3">
+
+        <IonCol class='ion-text-center' size-xs='3' size-md='3'>
+          Title
+        </IonCol>
+
+        <IonCol class='ion-text-center' size-xs='3' size-md='3'>
           <p>Winner?</p>
-          <select name="select" onChange={(e) => setInputUpdateMovieList("inputWinner", e.target.value)}>
-            <option value="">Yes/No</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+          <select
+            name='select'
+            className='select-winner-yn'
+            onChange={(e) =>
+              setInputUpdateMovieList('inputWinner', e.target.value)
+            }
+          >
+            <option value=''>Yes/No</option>
+            <option value='true'>Yes</option>
+            <option value='false'>No</option>
           </select>
         </IonCol>
       </IonRow>
-      {data && data.content.map((item: any, index: any) => {
-        return (
-          <IonRow key={index}>
-            <IonCol size-xs="3" size-md="3">{item.id}</IonCol>
-            <IonCol size-xs="3" size-md="3">{item.year}</IonCol>
-            <IonCol size-xs="3" size-md="3">{item.title}</IonCol>
-            <IonCol size-xs="3" size-md="3">{transformBooleanValue(item.winner)}</IonCol>
-          </IonRow>
-        )
-      })}
+
+      {data &&
+        data.content.map((item: any, index: any) => {
+          return (
+            <IonRow key={index}>
+              <IonCol size-xs='3' size-md='3'>
+                {item.id}
+              </IonCol>
+              <IonCol size-xs='3' size-md='3'>
+                {item.year}
+              </IonCol>
+              <IonCol size-xs='3' size-md='3'>
+                {item.title}
+              </IonCol>
+              <IonCol size-xs='3' size-md='3'>
+                {transformBooleanValue(item.winner)}
+              </IonCol>
+            </IonRow>
+          );
+        })}
 
       <IonRow>
-        <IonCol size-xs="12" size-md="12">
-          <Paginator totalPages={data?.totalPages} qtdPagesView={5} updatePage={updatePage}></Paginator>
+        <IonCol size-xs='12' size-md='12'>
+          <Paginator
+            totalPages={data?.totalPages}
+            qtdPagesView={5}
+            updatePage={updatePage}
+          ></Paginator>
         </IonCol>
       </IonRow>
     </IonGrid>
   );
-}
+};
 
 export default MovieListTable;

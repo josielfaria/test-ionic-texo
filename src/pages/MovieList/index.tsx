@@ -1,46 +1,68 @@
 import React, { useEffect, useState } from 'react';
-// import Loading from '../../components/Loading';
-import MovieListTable from '../../components/MovieListTable';
-import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, useIonLoading } from '@ionic/react';
+import {
+  IonButtons,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonRow,
+  IonTitle,
+  IonToolbar,
+  useIonLoading,
+} from '@ionic/react';
 import { useFetchPaginator } from '../../hooks/api';
 import { MovieList } from '../../types/movie-list-data.type';
 import { PaginatorParams } from '../../types/paginator-params.type';
+import MovieListTable from '../../components/MovieListTable';
+import Menu from '../../components/Menu';
 import './styled.css';
 
 const MovieListPage: React.FC = () => {
-  const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>({ page: 0, size: 11 });
-  const { data: movieList, isFetching } = useFetchPaginator<MovieList>(paginatorParams);
+  const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>({
+    page: 0,
+    size: 11,
+  });
+
+  const { data: movieList, isFetching } =
+    useFetchPaginator<MovieList>(paginatorParams);
+
   const [present, dismiss] = useIonLoading();
 
   useEffect(() => {
-    (isFetching) ? present({ message: 'Loading...' }) : dismiss();
-  }, [present, dismiss, isFetching])
+    isFetching ? present({ message: 'Loading...' }) : dismiss();
+  }, [present, dismiss, isFetching]);
 
   const updateMovieList = (year: string, winner: string): void => {
     if (!!year) {
-      setPaginatorParams(prevState => {
+      setPaginatorParams((prevState) => {
         return { ...prevState, year, page: 0 };
       });
     }
 
     if (!!winner) {
-      setPaginatorParams(prevState => {
+      setPaginatorParams((prevState) => {
         return { ...prevState, winner, page: 0 };
       });
-    };
-  }
+    }
+  };
 
   const updatePageMovieList = (page: number): void => {
-    setPaginatorParams(prevState => {
+    setPaginatorParams((prevState) => {
       return { ...prevState, page };
     });
-  }
+  };
 
   return (
-    <IonPage data-testid="ion-page">
+    <IonPage data-testid='ion-page'>
       <IonHeader>
         <IonToolbar>
-          <IonButtons slot="start">
+          <IonButtons slot='start'>
             <IonMenuButton />
           </IonButtons>
           <IonTitle>List</IonTitle>
@@ -48,25 +70,35 @@ const MovieListPage: React.FC = () => {
       </IonHeader>
 
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
+        <IonHeader collapse='condense'>
           <IonToolbar>
-            <IonTitle size="large">List</IonTitle>
+            <IonTitle size='large'>List</IonTitle>
           </IonToolbar>
         </IonHeader>
 
-        <IonCard>
-          <IonCardHeader>
-            <IonCardTitle>List movies</IonCardTitle>
-          </IonCardHeader>
+        <IonGrid>
+          <IonRow>
+            <IonCol size-xs='2' size-md='2'>
+              <Menu />
+            </IonCol>
 
-          <IonCardContent>
-            <MovieListTable
-              data={movieList}
-              updateMovieList={updateMovieList}
-              updatePageMovieList={updatePageMovieList}
-            />
-          </IonCardContent>
-        </IonCard >
+            <IonCol size-xs='10' size-md='10'>
+              <IonCard>
+                <IonCardHeader>
+                  <IonCardTitle>List movies</IonCardTitle>
+                </IonCardHeader>
+
+                <IonCardContent>
+                  <MovieListTable
+                    data={movieList}
+                    updateMovieList={updateMovieList}
+                    updatePageMovieList={updatePageMovieList}
+                  />
+                </IonCardContent>
+              </IonCard>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );

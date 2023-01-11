@@ -48,7 +48,10 @@ const MovieListTable: React.FC<MovieListTableProps> = ({ data, updateMovieList, 
         <IonCol class="ion-text-center" size-xs="3" size-md="3">Title</IonCol>
         <IonCol class="ion-text-center" size-xs="3" size-md="3">
           <p>Winner?</p>
-          <select name="select" onChange={(e) => setInputUpdateMovieList("inputWinner", e.target.value)}>
+          <select
+            name="select"
+            className="select-winner-yn"
+            onChange={(e) => setInputUpdateMovieList("inputWinner", e.target.value)}>
             <option value="">Yes/No</option>
             <option value="true">Yes</option>
             <option value="false">No</option>

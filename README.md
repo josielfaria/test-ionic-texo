@@ -2,7 +2,7 @@
 
 Acesse o sistema online no [Git Pages](https://josielfaria.github.io/test-ionic-texo/).
 
-## Objetivo.
+## Objetivo
 
 Listar indicados e vencedores da categoria Pior Filme do Golden Raspberry Awards conforme especificado.
 
@@ -45,6 +45,12 @@ Abra o cmd no repositório desejado e execute os seguintes comandos:
 
     $ git clone https://github.com/josielfaria/test-ionic-texo.git
 
+Instale as dependências:
+
     $ npm install
 
+Rode a aplicação localmente:
+
     $ ionic serve
+
+---

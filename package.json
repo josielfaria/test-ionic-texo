@@ -50,7 +50,9 @@
     "build": "react-scripts build",
     "build-prd": "react-scripts build --prod",
     "test": "react-scripts test --watchAll --detectOpenHandles --transformIgnorePatterns \"node_modules/(?!your-module-name)/\"",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -75,7 +77,8 @@
     "@types/enzyme": "^3.10.12",
     "@types/lodash.debounce": "^4.0.7",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.7"
+    "enzyme-adapter-react-16": "^1.15.7",
+    "gh-pages": "^4.0.0"
   },
   "description": "An Ionic project"
 }

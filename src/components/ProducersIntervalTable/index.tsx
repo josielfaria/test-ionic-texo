@@ -27,7 +27,7 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
 
       <IonCardContent>
         <IonTitle class='ion-text-uppercase'>maximum</IonTitle>
-        <IonGrid class='grid-table'>
+        <IonGrid class='grid-table' data-testid='table-producers-max'>
           <IonRow>
             <IonCol class='ion-text-center' size-xs='3' size-md='3'>
               Producer
@@ -66,7 +66,7 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
 
         <IonTitle class='ion-text-uppercase ion-padding-top'>minimum</IonTitle>
 
-        <IonGrid class='grid-table'>
+        <IonGrid class='grid-table' data-testid='table-producers-min'>
           <IonRow>
             <IonCol class='ion-text-center' size-xs='3' size-md='3'>
               Producer

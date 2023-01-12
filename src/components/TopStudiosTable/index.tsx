@@ -16,7 +16,7 @@ const TopStudiosTable: React.FC<TopStudiosTableProps> = ({ data }) => {
       </IonCardHeader>
 
       <IonCardContent>
-        <IonGrid class="grid-table">
+        <IonGrid class="grid-table" data-testid='table-top-studios'>
           <IonRow>
             <IonCol class="ion-text-center" size-xs="6" size-md="6">Name</IonCol>
             <IonCol class="ion-text-center" size-xs="6" size-md="6">Win Count</IonCol>

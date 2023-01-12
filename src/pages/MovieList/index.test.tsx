@@ -15,6 +15,7 @@ describe('MovieListPage', () => {
   const wrapper = shallow(component);
   const movieListTableComponent = wrapper.find(MovieListTable);
   render(<MovieListPage />);
+
   test('render page', () => {
     const { baseElement } = render(<MovieListPage />);
     expect(baseElement).toBeDefined();

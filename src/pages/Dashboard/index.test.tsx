@@ -38,19 +38,19 @@ describe('DashboardPage', () => {
     expect(titleDashboard).toBeTruthy();
   });
 
-  it('render component YearsMultipleWinnersTable', () => {
+  test('render component YearsMultipleWinnersTable', () => {
     expect(wrapper.find(YearsMultipleWinnersTable)).toHaveLength(1);
   });
 
-  it('render component TopStudiosTable', () => {
+  test('render component TopStudiosTable', () => {
     expect(wrapper.find(TopStudiosTable)).toHaveLength(1);
   });
 
-  it('render component ProducersIntervalTable', () => {
+  test('render component ProducersIntervalTable', () => {
     expect(wrapper.find(ProducersIntervalTable)).toHaveLength(1);
   });
 
-  it('render component WinnersByYearTable', () => {
+  test('render component WinnersByYearTable', () => {
     expect(wrapper.find(WinnersByYearTable)).toHaveLength(1);
   });
 });

@@ -79,14 +79,14 @@ const WinnersByYearTable: React.FC = () => {
           <IonCol size-xs='1'>
             <button
               className='search-button'
-              onClick={() => searchWinnersByYear()}
+              onClick={searchWinnersByYear}
             >
               <IonIcon slot='icon-only' icon={search}></IonIcon>
             </button>
           </IonCol>
         </IonRow>
 
-        <IonGrid class='grid-table'>
+        <IonGrid class='grid-table' data-testid='table-winners-by-year'>
           <IonRow color='success'>
             <IonCol class='ion-text-center' size-xs='4' size-md='4'>
               Id

@@ -69,25 +69,25 @@ const DashboardPage: React.FC = () => {
 
         <IonGrid>
           <IonRow>
-            <IonCol size-xs='2' size-md='2'>
+            <IonCol>
               <Menu />
             </IonCol>
 
-            <IonCol size-xs='10' size-md='10'>
+            <IonCol size-xs='10' size-sm='12' size-md='10'>
               <IonGrid>
                 <IonRow>
-                  <IonCol>
+                  <IonCol size-xs='12' size-sm='12' size-lg='6'>
                     <YearsMultipleWinnersTable data={yearsMultipleWinners} />
                   </IonCol>
-                  <IonCol>
+                  <IonCol size-xs='12' size-sm='12' size-lg='6'>
                     <TopStudiosTable data={topStudios} />
                   </IonCol>
                 </IonRow>
                 <IonRow>
-                  <IonCol>
+                  <IonCol size-xs='12' size-sm='12' size-lg='6'>
                     <ProducersIntervalTable data={producersInterval} />
                   </IonCol>
-                  <IonCol>
+                  <IonCol size-xs='12' size-sm='12' size-lg='6'>
                     <WinnersByYearTable />
                   </IonCol>
                 </IonRow>

@@ -1,5 +1,5 @@
 import { render, screen, within } from '@testing-library/react';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import DashboardPage from '.';
 import WinnersByYearTable from '../../components/WinnersByYearTable';
 import YearsMultipleWinnersTable from '../../components/YearsMultipleWinnersTable';
@@ -14,17 +14,25 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('DashboardPage', () => {
-  const component = <DashboardPage />;
-  const wrapper = shallow(component);
-  render(<DashboardPage />);
+  let component: any;
+  let wrapper: ShallowWrapper;
+
+  beforeEach(() => {
+    component = <DashboardPage />;
+    wrapper = shallow(component);
+  });
+
+  afterEach(() => {
+    wrapper.unmount();
+  });
 
   test('render page', () => {
-    const { baseElement } = render(<DashboardPage />);
+    const { baseElement } = render(component);
     expect(baseElement).toBeDefined();
   });
 
   test('there is a title on the ion page', () => {
-    render(<DashboardPage />);
+    render(component);
     const title = screen.getByTestId('ion-page');
     const titleDashboard = within(title).getAllByText('Dashboard');
     expect(titleDashboard).toBeTruthy();

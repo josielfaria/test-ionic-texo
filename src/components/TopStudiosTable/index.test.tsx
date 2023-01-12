@@ -7,7 +7,6 @@ import TopStudiosTable from '.';
 describe('TopStudiosTable', () => {
   let component: any;
   let wrapper: ShallowWrapper;
-  render(component);
 
   beforeEach(() => {
     component = <TopStudiosTable data={mockTopStudios} />;

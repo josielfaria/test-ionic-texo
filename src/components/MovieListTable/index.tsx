@@ -43,7 +43,6 @@ const MovieListTable: React.FC<MovieListTableProps> = ({
           <p>Year</p>
           <input
             type='text'
-            className=''
             placeholder='Filter by year'
             onChange={(e) =>
               setInputUpdateMovieList('inputYear', e.target.value)

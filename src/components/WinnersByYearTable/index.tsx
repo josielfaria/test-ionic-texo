@@ -77,41 +77,26 @@ const WinnersByYearTable: React.FC = () => {
           </IonCol>
 
           <IonCol size-xs='1'>
-            <button
-              className='search-button'
-              onClick={() => searchWinnersByYear()}
-            >
+            <button className='search-button' onClick={searchWinnersByYear}>
               <IonIcon slot='icon-only' icon={search}></IonIcon>
             </button>
           </IonCol>
         </IonRow>
 
-        <IonGrid class='grid-table'>
+        <IonGrid class='grid-table' data-testid='table-winners-by-year'>
           <IonRow color='success'>
-            <IonCol class='ion-text-center' size-xs='4' size-md='4'>
-              Id
-            </IonCol>
-            <IonCol class='ion-text-center' size-xs='4' size-md='4'>
-              Year
-            </IonCol>
-            <IonCol class='ion-text-center' size-xs='4' size-md='4'>
-              Title
-            </IonCol>
+            <IonCol class='ion-text-center'>Id</IonCol>
+            <IonCol class='ion-text-center'>Year</IonCol>
+            <IonCol class='ion-text-center'>Title</IonCol>
           </IonRow>
 
           {data &&
             data.content.map((item: any, index: any) => {
               return (
                 <IonRow key={index}>
-                  <IonCol size-xs='4' size-md='4'>
-                    {item.id}
-                  </IonCol>
-                  <IonCol size-xs='4' size-md='4'>
-                    {item.year}
-                  </IonCol>
-                  <IonCol size-xs='4' size-md='4'>
-                    {item.title}
-                  </IonCol>
+                  <IonCol>{item.id}</IonCol>
+                  <IonCol>{item.year}</IonCol>
+                  <IonCol>{item.title}</IonCol>
                 </IonRow>
               );
             })}

@@ -27,18 +27,18 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
 
       <IonCardContent>
         <IonTitle class='ion-text-uppercase'>maximum</IonTitle>
-        <IonGrid class='grid-table'>
+        <IonGrid class='grid-table' data-testid='table-producers-max'>
           <IonRow>
-            <IonCol class='ion-text-center' size-xs='3' size-md='3'>
+            <IonCol class='ion-text-center' size='3'>
               Producer
             </IonCol>
-            <IonCol class='ion-text-center' size-xs='3' size-md='3'>
+            <IonCol class='ion-text-center' size='3'>
               Interval
             </IonCol>
-            <IonCol class='ion-text-center' size-xs='3' size-md='3'>
+            <IonCol class='ion-text-center' size='3'>
               Previous Year
             </IonCol>
-            <IonCol class='ion-text-center' size-xs='3' size-md='3'>
+            <IonCol class='ion-text-center' size='3'>
               Following Year
             </IonCol>
           </IonRow>
@@ -47,18 +47,10 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
             data.max.map((item: any, index: any) => {
               return (
                 <IonRow key={index}>
-                  <IonCol size-xs='3' size-md='3'>
-                    {item.producer}
-                  </IonCol>
-                  <IonCol size-xs='3' size-md='3'>
-                    {item.interval}
-                  </IonCol>
-                  <IonCol size-xs='3' size-md='3'>
-                    {item.previousWin}
-                  </IonCol>
-                  <IonCol size-xs='3' size-md='3'>
-                    {item.followingWin}
-                  </IonCol>
+                  <IonCol size='3'>{item.producer}</IonCol>
+                  <IonCol size='3'>{item.interval}</IonCol>
+                  <IonCol size='3'>{item.previousWin}</IonCol>
+                  <IonCol size='3'>{item.followingWin}</IonCol>
                 </IonRow>
               );
             })}
@@ -66,18 +58,18 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
 
         <IonTitle class='ion-text-uppercase ion-padding-top'>minimum</IonTitle>
 
-        <IonGrid class='grid-table'>
+        <IonGrid class='grid-table' data-testid='table-producers-min'>
           <IonRow>
-            <IonCol class='ion-text-center' size-xs='3' size-md='3'>
+            <IonCol class='ion-text-center' size='3'>
               Producer
             </IonCol>
-            <IonCol class='ion-text-center' size-xs='3' size-md='3'>
+            <IonCol class='ion-text-center' size='3'>
               Interval
             </IonCol>
-            <IonCol class='ion-text-center' size-xs='3' size-md='3'>
+            <IonCol class='ion-text-center' size='3'>
               Previous Year
             </IonCol>
-            <IonCol class='ion-text-center' size-xs='3' size-md='3'>
+            <IonCol class='ion-text-center' size='3'>
               Following Year
             </IonCol>
           </IonRow>
@@ -86,18 +78,10 @@ const ProducersIntervalTable: React.FC<ProducersIntervalProps> = ({ data }) => {
             data.min.map((item: any, index: any) => {
               return (
                 <IonRow key={index}>
-                  <IonCol size-xs='3' size-md='3'>
-                    {item.producer}
-                  </IonCol>
-                  <IonCol size-xs='3' size-md='3'>
-                    {item.interval}
-                  </IonCol>
-                  <IonCol size-xs='3' size-md='3'>
-                    {item.previousWin}
-                  </IonCol>
-                  <IonCol size-xs='3' size-md='3'>
-                    {item.followingWin}
-                  </IonCol>
+                  <IonCol size='3'>{item.producer}</IonCol>
+                  <IonCol size='3'>{item.interval}</IonCol>
+                  <IonCol size='3'>{item.previousWin}</IonCol>
+                  <IonCol size='3'>{item.followingWin}</IonCol>
                 </IonRow>
               );
             })}

@@ -5,7 +5,8 @@ export type MovieList = {
   pageable: {
     sort: {
       sorted: boolean;
-      unsorted: boolean
+      unsorted: boolean;
+      empty?: boolean;
     },
     pageSize: number;
     pageNumber: number;
@@ -20,7 +21,9 @@ export type MovieList = {
   sort: {
     sorted: boolean;
     unsorted: boolean
+    empty?: boolean;
   }, number: number;
   numberOfElements: number;
   size: number;
+  empty?: boolean;
 }

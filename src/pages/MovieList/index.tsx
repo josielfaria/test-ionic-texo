@@ -78,11 +78,11 @@ const MovieListPage: React.FC = () => {
 
         <IonGrid>
           <IonRow>
-            <IonCol size-xs='2' size-md='2'>
+            <IonCol>
               <Menu />
             </IonCol>
 
-            <IonCol size-xs='10' size-md='10'>
+            <IonCol size-xs='12' size-sm='12' size-md='10'>
               <IonCard>
                 <IonCardHeader>
                   <IonCardTitle>List movies</IonCardTitle>

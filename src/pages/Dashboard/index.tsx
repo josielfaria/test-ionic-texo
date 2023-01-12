@@ -73,7 +73,7 @@ const DashboardPage: React.FC = () => {
               <Menu />
             </IonCol>
 
-            <IonCol size-xs='10' size-sm='12' size-md='10'>
+            <IonCol size-xs='12' size-sm='12' size-md='10'>
               <IonGrid>
                 <IonRow>
                   <IonCol size-xs='12' size-sm='12' size-lg='6'>

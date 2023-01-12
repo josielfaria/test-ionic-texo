@@ -27,24 +27,16 @@ const YearsMultipleWinnersTable: React.FC<YearsMultipleWinnersTableProps> = ({
       <IonCardContent>
         <IonGrid class='grid-table' data-testid='table-multiple-winners'>
           <IonRow>
-            <IonCol class='ion-text-center' size-xs='6' size-md='6'>
-              Year
-            </IonCol>
-            <IonCol class='ion-text-center' size-xs='6' size-md='6'>
-              Win Count
-            </IonCol>
+            <IonCol class='ion-text-center'>Year</IonCol>
+            <IonCol class='ion-text-center'>Win Count</IonCol>
           </IonRow>
 
           {data &&
             data.years.map((item: any, index: any) => {
               return (
                 <IonRow key={index}>
-                  <IonCol size-xs='6' size-md='6'>
-                    {item.year}
-                  </IonCol>
-                  <IonCol size-xs='6' size-md='6'>
-                    {item.winnerCount}
-                  </IonCol>
+                  <IonCol>{item.year}</IonCol>
+                  <IonCol>{item.winnerCount}</IonCol>
                 </IonRow>
               );
             })}

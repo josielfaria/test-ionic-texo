@@ -33,7 +33,7 @@ const MovieListTable: React.FC<MovieListTableProps> = ({
     value ? 'Yes' : 'No';
 
   return (
-    <IonGrid class='grid-table'>
+    <IonGrid class='grid-table' data-testid='table-movie-list'>
       <IonRow>
         <IonCol class='ion-text-center' size-xs='3' size-md='3'>
           Id

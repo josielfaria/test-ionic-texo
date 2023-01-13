@@ -39,7 +39,7 @@ const DashboardPage: React.FC = () => {
 
   useEffect(() => {
     isFetchingYears || isFetchingStudios || isFetchingProducers
-      ? present({ message: 'Loading...' })
+      ? present({ message: 'Loading...', duration: 3000 })
       : dismiss();
   }, [
     present,

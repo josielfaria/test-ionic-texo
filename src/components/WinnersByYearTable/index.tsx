@@ -36,9 +36,8 @@ const WinnersByYearTable: React.FC = () => {
   };
 
   const searchWinnersByYear = (): void => {
-    present();
-
     if (!!paginatorParams.year) {
+      present();
       axios
         .get(apiUrl, { params: paginatorParams })
         .then((response) => {

@@ -4,7 +4,7 @@ import {
   IonSplitPane,
   setupIonicReact,
 } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonReactHashRouter, IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
 /* Core CSS required for Ionic components to work properly */
@@ -40,19 +40,21 @@ const App: React.FC = () => {
     <IonApp>
       <IonReactRouter>
         <IonSplitPane contentId='main'>
-          <IonRouterOutlet id='main'>
-            <Route path='/'>
-              <Redirect to='/page/dashboard' />
-            </Route>
+          <IonReactHashRouter >
+            <IonRouterOutlet id='main'>
+              <Route path=''>
+                <Redirect to='/page/dashboard' />
+              </Route>
 
-            <Route path='/page/dashboard'>
-              <DashboardPage />
-            </Route>
+              <Route path='/page/dashboard'>
+                <DashboardPage />
+              </Route>
 
-            <Route path='/page/movie-list'>
-              <MovieListPage />
-            </Route>
-          </IonRouterOutlet>
+              <Route path='/page/movie-list'>
+                <MovieListPage />
+              </Route>
+            </IonRouterOutlet>
+          </IonReactHashRouter>
         </IonSplitPane>
       </IonReactRouter>
     </IonApp>

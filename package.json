@@ -2,7 +2,7 @@
   "name": "test-ionic-texo",
   "version": "0.0.1",
   "private": true,
-  "homepage": "/test-ionic-texto/",
+  "homepage": "/test-ionic-texo/",
   "dependencies": {
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "4.6.1",

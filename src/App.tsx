@@ -41,7 +41,7 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonSplitPane contentId='main'>
           <Route
-            path='/test-ionic-fron'
+            path='/test-ionic-texo'
             render={() => (
               <IonRouterOutlet id='main'>
                 <Route path='/' exact={true}>

@@ -42,7 +42,7 @@ const App: React.FC = () => {
         <IonSplitPane contentId='main'>
           <IonReactHashRouter >
             <IonRouterOutlet id='main'>
-              <Route path='/'>
+              <Route path=''>
                 <Redirect to='/page/dashboard' />
               </Route>
 

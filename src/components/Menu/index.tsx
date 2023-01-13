@@ -1,6 +1,4 @@
 import { IonItem, IonLabel, IonMenuToggle } from '@ionic/react';
-import { useHistory } from 'react-router';
-
 import { useLocation } from 'react-router-dom';
 import './styled.css';
 
@@ -12,11 +10,11 @@ interface MenuList {
 const menuList: MenuList[] = [
   {
     title: 'Dashboard',
-    url: '/page/dashboard',
+    url: 'test-ionic-texo/page/dashboard',
   },
   {
     title: 'List',
-    url: '/page/movie-list',
+    url: 'test-ionic-texo/page/movie-list',
   },
 ];
 

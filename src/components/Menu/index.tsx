@@ -10,11 +10,11 @@ interface MenuList {
 const menuList: MenuList[] = [
   {
     title: 'Dashboard',
-    url: '/test-ionic-texo/page/dashboard',
+    url: '/page/dashboard',
   },
   {
     title: 'List',
-    url: '/test-ionic-texo/page/movie-list',
+    url: '/page/movie-list',
   },
 ];
 

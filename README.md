@@ -1,6 +1,6 @@
 # Teste Frontend - Texo - Ionic/Reactjs
 
-Acesse o sistema online no [Git Pages](https://josielfaria.github.io/test-ionic-texo/).
+Acesse o sistema online no [Git Pages](https://josielfaria.github.io/test-ionic-texo/#/page/dashboard).
 
 ## Objetivo
 

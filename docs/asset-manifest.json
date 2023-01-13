@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/test-ionic-texo/static/css/main.082d8f5b.css",
-    "main.js": "/test-ionic-texo/static/js/main.a997e945.js",
+    "main.js": "/test-ionic-texo/static/js/main.3deb15f1.js",
     "static/js/738.30e5a428.chunk.js": "/test-ionic-texo/static/js/738.30e5a428.chunk.js",
     "static/js/372.85965f7d.chunk.js": "/test-ionic-texo/static/js/372.85965f7d.chunk.js",
     "static/js/856.391ed79d.chunk.js": "/test-ionic-texo/static/js/856.391ed79d.chunk.js",
@@ -14,7 +14,7 @@
     "service-worker.js": "/test-ionic-texo/service-worker.js",
     "index.html": "/test-ionic-texo/index.html",
     "main.082d8f5b.css.map": "/test-ionic-texo/static/css/main.082d8f5b.css.map",
-    "main.a997e945.js.map": "/test-ionic-texo/static/js/main.a997e945.js.map",
+    "main.3deb15f1.js.map": "/test-ionic-texo/static/js/main.3deb15f1.js.map",
     "738.30e5a428.chunk.js.map": "/test-ionic-texo/static/js/738.30e5a428.chunk.js.map",
     "372.85965f7d.chunk.js.map": "/test-ionic-texo/static/js/372.85965f7d.chunk.js.map",
     "856.391ed79d.chunk.js.map": "/test-ionic-texo/static/js/856.391ed79d.chunk.js.map",
@@ -27,6 +27,6 @@
   },
   "entrypoints": [
     "static/css/main.082d8f5b.css",
-    "static/js/main.a997e945.js"
+    "static/js/main.3deb15f1.js"
   ]
 }

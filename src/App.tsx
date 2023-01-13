@@ -40,25 +40,22 @@ const App: React.FC = () => {
     <IonApp>
       <IonReactRouter>
         <IonSplitPane contentId='main'>
-          <Route
-            path='/test-ionic-texo'
-            render={() => (
-              <IonRouterOutlet id='main'>
-                <Route path='/' exact={true}>
-                  <Redirect to='page/dashboard' />
-                </Route>
+          <IonRouterOutlet id='main'>
+            <Route path='/' exact={true}>
+              <Redirect to='page/dashboard' />
+            </Route>
 
-                <Route path='page/dashboard' exact={true}>
-                  <DashboardPage />
-                </Route>
+            <Route path='page/dashboard'>
+              <DashboardPage />
+            </Route>
 
-                <Route path='page/movie-list'>
-                  <MovieListPage />
-                </Route>
-              </IonRouterOutlet>
-            )}
-          />
-          <Route component={() => <div> Not found</div>} />
+            <Route path='page/movie-list' exact={true}>
+              <MovieListPage />
+            </Route>
+            <Route path='test-ionic-texo/page/movie-list' exact={true}>
+              <MovieListPage />
+            </Route>
+          </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
     </IonApp>

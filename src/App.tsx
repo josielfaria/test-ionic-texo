@@ -41,18 +41,15 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonSplitPane contentId='main'>
           <IonRouterOutlet id='main'>
-            <Route path='/' exact={true}>
-              <Redirect to='page/dashboard' />
+            <Route path='/'>
+              <Redirect to='/test-ionic-texo/page/dashboard' />
             </Route>
 
-            <Route path='page/dashboard'>
+            <Route path='/test-ionic-texo/page/dashboard'>
               <DashboardPage />
             </Route>
 
-            <Route path='page/movie-list' exact={true}>
-              <MovieListPage />
-            </Route>
-            <Route path='test-ionic-texo/page/movie-list' exact={true}>
+            <Route path='/test-ionic-texo/page/movie-list'>
               <MovieListPage />
             </Route>
           </IonRouterOutlet>

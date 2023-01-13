@@ -1,6 +1,6 @@
 {
 	"appId": "io.ionic.starter",
 	"appName": "test-ionic-texo",
-	"webDir": "build",
+	"webDir": "build/test-ionic-texo",
 	"bundledWebRuntime": false
 }

@@ -48,7 +48,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build" ,
+    "build": "react-scripts build",
     "build-prd": "react-scripts build --prod --base-href=/test-ionic-texo/",
     "test": "react-scripts test --watchAll --detectOpenHandles --transformIgnorePatterns \"node_modules/(?!your-module-name)/\"",
     "eject": "react-scripts eject",

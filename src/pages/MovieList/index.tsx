@@ -24,10 +24,9 @@ import Menu from '../../components/Menu';
 import './styled.css';
 
 const MovieListPage: React.FC = () => {
-  const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>({
-    page: 0,
-    size: 11,
-  });
+  const PAGINATOR_INIT: PaginatorParams = { page: 0, size: 11 };
+
+  const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>(PAGINATOR_INIT);
 
   const { data: movieList, isFetching } =
     useFetchPaginator<MovieList>(paginatorParams);
@@ -39,6 +38,10 @@ const MovieListPage: React.FC = () => {
   }, [present, dismiss, isFetching]);
 
   const updateMovieList = (year: string, winner: string): void => {
+    if (!year && !winner) {
+      setPaginatorParams(PAGINATOR_INIT);
+    }
+
     if (!!year) {
       setPaginatorParams((prevState) => {
         return { ...prevState, year, page: 0 };

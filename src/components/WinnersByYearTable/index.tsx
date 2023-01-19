@@ -19,11 +19,9 @@ import './styled.css';
 
 const WinnersByYearTable: React.FC = () => {
   const apiUrl = 'https://tools.texoit.com/backend-java/api/movies';
-  const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>({
-    page: 0,
-    size: 99,
-    winner: 'true',
-  });
+  const PAGINATOR_INIT: PaginatorParams = { page: 0, size: 99, winner: "true", year: "0" };
+
+  const [paginatorParams, setPaginatorParams] = useState<PaginatorParams>(PAGINATOR_INIT);
 
   const [data, setData] = useState<MovieList>();
 
@@ -36,20 +34,23 @@ const WinnersByYearTable: React.FC = () => {
   };
 
   const searchWinnersByYear = (): void => {
-    if (!!paginatorParams.year) {
-      present();
-      axios
-        .get(apiUrl, { params: paginatorParams })
-        .then((response) => {
-          setData(response.data);
-        })
-        .catch((err) => {
-          console.log('error:', err);
-        })
-        .finally(() => {
-          dismiss();
-        });
+    if (!paginatorParams.year) {
+      setPaginatorParams(PAGINATOR_INIT);
+
     }
+
+    present();
+    axios
+      .get(apiUrl, { params: paginatorParams })
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((err) => {
+        console.log("error:", err);
+      })
+      .finally(() => {
+        dismiss();
+      });
   };
 
   const setInputUpdateWinnersByYear = useRef(

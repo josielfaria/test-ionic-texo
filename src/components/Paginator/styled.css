@@ -17,10 +17,12 @@
   user-select: none;
 }
 
-.paginator>span:hover {
-  background-color: var(--ion-color-primary);
-  color: white;
-  cursor: pointer;
+@media (hover: hover) {
+  .paginator>span:hover {
+    background-color: var(--ion-color-primary);
+    color: white;
+    cursor: pointer;
+  }
 }
 
 .paginator>span.active {

@@ -35,9 +35,9 @@ const MovieListTable: React.FC<MovieListTableProps> = ({
   return (
     <IonGrid class='grid-table' data-testid='table-movie-list'>
       <IonRow>
-        <IonCol class='ion-text-center'>Id</IonCol>
+        <IonCol class='ion-text-center' size-xs="2" size-sm="3">Id</IonCol>
 
-        <IonCol class='ion-text-center filter-by-year'>
+        <IonCol class='ion-text-center filter-by-year' size-xs="2" size-sm="3">
           <p>Year</p>
           <input
             type='text'
@@ -50,7 +50,7 @@ const MovieListTable: React.FC<MovieListTableProps> = ({
 
         <IonCol class='ion-text-center'>Title</IonCol>
 
-        <IonCol class='ion-text-center'>
+        <IonCol class='ion-text-center' size-xs="3">
           <p>Winner?</p>
           <select
             name='select'
@@ -69,11 +69,11 @@ const MovieListTable: React.FC<MovieListTableProps> = ({
       {data &&
         data.content.map((item: any, index: any) => {
           return (
-            <IonRow key={index}>
-              <IonCol>{item.id}</IonCol>
-              <IonCol>{item.year}</IonCol>
+            <IonRow class="text-wrap" key={index}>
+              <IonCol size-xs="2" size-sm="3">{item.id}</IonCol>
+              <IonCol size-xs="2" size-sm="3">{item.year}</IonCol>
               <IonCol>{item.title}</IonCol>
-              <IonCol>{transformBooleanValue(item.winner)}</IonCol>
+              <IonCol size-xs="3">{transformBooleanValue(item.winner)}</IonCol>
             </IonRow>
           );
         })}
